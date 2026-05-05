@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+// @ts-ignore
 import 'leaflet/dist/leaflet.css';
 
 // dynamically load map components only on client to avoid SSR window reference
@@ -84,14 +85,18 @@ export default function PenangananMapPage() {
 
                 <div className="bg-white rounded-lg shadow overflow-hidden">
                     <MapContainer
-                        center={[-6.2088, 106.8456]}
-                        zoom={5}
-                        style={{height:"500px", width:"100%"}}
-                    >
-                        <TileLayer
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            attribution="&copy; OpenStreetMap contributors"
-                        />
+  {...({
+    center: [-6.2088, 106.8456],
+    zoom: 5,
+    style: { height: "500px", width: "100%" }
+  } as any)}
+>
+    <TileLayer
+  {...({
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    attribution: "&copy; OpenStreetMap contributors",
+  } as any)}
+/>
 
                         {userLocation && (
                             <Marker position={userLocation}>

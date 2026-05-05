@@ -39,7 +39,7 @@ export default function WebPConversion({ compressedFile, resizeData }: WebPConve
 
     return (
         <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold mb-4">Step 3: WebP Converssion</h2>
+            <h2 className="text-2xl font-bold mb-4 text-black">Step 3: WebP Converssion</h2>
             <p className="text-gray-600 mb-6">Convert ke format WebP untuk performa optimal</p>
 
             <button

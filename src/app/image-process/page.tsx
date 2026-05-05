@@ -24,7 +24,7 @@ export default function ImageProcessPage() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-4">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-4x font-bold text-center mb-8">
+                <h1 className="text-4x font-bold text-center mb-8 text-black">
                     image optimizer
                 </h1>
 

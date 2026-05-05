@@ -9,7 +9,7 @@ export default function Mediasetion() {
             <div className=" space-y-4">
                 <h4 className="text-2xl font-semibold text-black">gambar optimasi otomatis</h4>
                 <Image 
-                    src="/image.jpg"   
+                    src="/image.png"   
                     alt="gambar optimasi otomatis" 
                     width={800} 
                     height={500} 
@@ -25,14 +25,14 @@ export default function Mediasetion() {
                 <h4 className="text-xl font-semibold text-black">galeri responsive</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Image 
-                    src="/image.jpg"
+                    src="/image2.png"
                     alt="gambar 1"
                     width={800}
                     height={500}
                     className="w-full h-auto rounded-lg shadow-lg"
                     />
                     <Image 
-                    src="/image.jpg"
+                    src="/image2.png"
                     alt="gambar 2"
                     width={800}
                     height={500}

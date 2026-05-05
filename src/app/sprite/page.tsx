@@ -47,7 +47,7 @@ export default function SpritePage() {
 
             {/* header */}
             <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
-                <h1 className="w-0 text-xl md:text-2xl font-semibold ">sosial media icons</h1>
+                <h1 className="w-0 text-xl md:text-2xl font-semibold text-black ">sosial media icons</h1>
                 <p className="mt-2 mb-0 text-gray-600 text-sm md:text-base">Css Sprite Sheet</p>
             </div>
 
@@ -70,7 +70,7 @@ export default function SpritePage() {
                             style={{
                                 width: `${displaySize}px`,
                                 height: `${displaySize}px`,
-                                backgroundImage: "url('/image3.jpg')",
+                                backgroundImage: "url('/image.jpeg')",
                                 backgroundSize: `${iconSize * 4}px ${iconSize * 4}px`,
                                 backgroundPosition: `-${icon.col * iconSize + icon.offsetX}px -${icon.row * iconSize + icon.offsetY}px`,
                                 boxShadow: hoveredIcon === icon.name ? `0 4px 12px ${icon.color}60` : undefined
@@ -91,7 +91,7 @@ export default function SpritePage() {
                         style={{
                             width: `${previewSize}px`,
                             height: `${previewSize}px`,
-                            backgroundImage: "url('/image3.jpg')",
+                            backgroundImage: "url('/image.jpeg')",
                             backgroundSize: `${iconSize * 4 * (previewSize / displaySize)}px ${iconSize * 4 * (previewSize / displaySize)}px`,
                             backgroundPosition: `-${selectedIcon.col * iconSize * (previewSize / displaySize) + selectedIcon.offsetX * (previewSize / displaySize)}px 
                             -${selectedIcon.row * iconSize * (previewSize / displaySize) + selectedIcon.offsetY * (previewSize / displaySize)}px`,
