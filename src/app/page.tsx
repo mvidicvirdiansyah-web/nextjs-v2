@@ -249,7 +249,7 @@ export default function Home() {
           </p>
 
           <a
-            href="mailto:muhammadvidicvirdiansyah@gmail.com"
+            href="mailto:mvidicvirdiansyah@gmail.com"
             className="mt-8 inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold transition hover:bg-blue-700"
           >
             Email Saya
