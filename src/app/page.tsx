@@ -249,7 +249,7 @@ export default function Home() {
           </p>
 
           <a
-            href="mailto:emailkamu@gmail.com"
+            href="mailto:muhammadvidicvirdiansyah@gmail.com"
             className="mt-8 inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold transition hover:bg-blue-700"
           >
             Email Saya
@@ -262,7 +262,7 @@ export default function Home() {
       {/* ================= FOOTER ================= */}
       <footer className="border-t border-white/10 px-6 py-8 text-center text-slate-500">
         <p>
-          © 2026 Nama Kamu. All rights reserved.
+          © 2026 Muhammad Vidic Virdiansyah. All rights reserved.
         </p>
       </footer>
 
