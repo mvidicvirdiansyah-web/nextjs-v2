@@ -1,31 +1,9 @@
-import { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import 'leaflet/dist/leaflet.css';
-
-import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "NextJS V2 - Aplikasi dengan NextJS 16 dan TailwindCSS",
-  description: "Aplikasi contoh yang dibangun dengan NextJS 16, TailwindCSS, dan berbagai hal lagi",
-  manifest: "/manifest.json",
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  title: "Portfolio | Saya",
+  description: "Website portfolio pribadi saya",
 };
 
 export default function RootLayout({
@@ -34,12 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
-      </body>
+    <html lang="id">
+      <body>{children}</body>
     </html>
   );
 }
