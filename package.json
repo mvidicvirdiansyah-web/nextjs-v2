@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.105.2",
+    "@supabase/supabase-js": "^2.116.0",
     "browser-image-compression": "^2.0.2",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.11.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.19.43",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19",
     "@types/react-google-recaptcha": "^2.1.9",

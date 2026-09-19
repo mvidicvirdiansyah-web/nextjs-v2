@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#023136] text-[#AFDDE5]">
 
-      {/* ================= NAVBAR ================= */}
+      {/* = NAVBAR  */}
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#024950]/90 backdrop-blur-md">
 
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
@@ -131,7 +131,7 @@ export default function Home() {
       </nav>
 
 
-      {/* ================= HERO ================= */}
+      {/*  HERO =*/}
      <section
   id="home"
   className="flex min-h-screen w-full items-center overflow-hidden px-6 pt-24"
@@ -209,7 +209,7 @@ export default function Home() {
       </section>
 
 
-      {/* ================= ABOUT ================= */}
+      {/* ABOUT  */}
       <section
         id="about"
         className="border-t border-white/10 px-6 py-24"
@@ -241,7 +241,7 @@ export default function Home() {
       </section>
 
 
-      {/* ================= SKILLS ================= */}
+      {/*  SKILLS */}
       <section
         id="skills"
         className="bg-slate-900/50 px-6 py-24"
@@ -271,14 +271,13 @@ export default function Home() {
       </section>
 
 
-      {/* ================= PROJECTS ================= */}
-     
+      {/*  PROJECTS */}
+     {/*  PROJECTS */}
 <section
   id="projects"
   className="px-6 py-24"
 >
   <div className="mx-auto max-w-6xl">
-
     <p className="text-blue-400">
       MY PROJECTS
     </p>
@@ -287,68 +286,49 @@ export default function Home() {
       Project Saya
     </h2>
 
-    <div className="mt-10 grid gap-6 md:grid-cols-2">
+    <div className="mt-10 grid gap-6 md:grid-cols-3">
 
-     <a
-  href="/projects/pulsaku"
-  className="block overflow-hidden rounded-2xl bg-[#024950] hover:-translate-y-2 transition duration-300"
->
-  <Image
-    src="/logopulsaku.png"
-    alt="PulsaKu"
-    width={600}
-    height={400}
-    className="w-full aspect-video object-cover"
-  />
+      <Project
+        title="PulsaKu"
+        description="Aplikasi untuk mengelola transaksi penjualan pulsa."
+        tech="Next.js • Tailwind CSS • MySQL"
+      />
 
-  <div className="p-6">
-    <h3 className="text-xl font-bold">
-      PulsaKu
-    </h3>
+      <Project
+        title="Portfolio Website"
+        description="Website portfolio pribadi yang dibuat menggunakan Next.js."
+        tech="Next.js • React • Tailwind CSS"
+      />
 
-    <p className="mt-3 text-gray-300">
-      Aplikasi pencatatan transaksi pulsa.
-    </p>
+      <a
+        href="https://nextjs-v2-a7xsv5dn5-mvidicvirdiansyah-9115s-projects.vercel.app/#projects"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group rounded-2xl border border-white/10 bg-slate-900 p-7 transition hover:-translate-y-2 hover:border-blue-500/50"
+      >
+        <div className="mb-6 flex h-40 items-center justify-center rounded-xl bg-slate-800 text-5xl">
+          🧺
+        </div>
 
-    <p className="mt-4 text-blue-400">
-      Lihat Detail →
-    </p>
-  </div>
-</a>
-     <a
-  href="/projects/portfolio"
-  className="block overflow-hidden rounded-2xl bg-[#024950] hover:-translate-y-2 transition duration-300"
->
-  <Image
-    src="/vidic.png"
-    alt="Portfolio Website"
-    width={600}
-    height={400}
-    className="w-full aspect-video object-cover"
-  />
+        <h3 className="text-2xl font-bold">
+          Sistem Laundry
+        </h3>
 
-  <div className="p-6">
-    <h3 className="text-xl font-bold">
-      Portfolio Website
-    </h3>
+        <p className="mt-3 leading-relaxed text-slate-400">
+          Website untuk mengelola data pelanggan dan transaksi laundry.
+        </p>
 
-    <p className="mt-3 text-gray-300">
-      Website portfolio pribadi untuk menampilkan informasi, kemampuan, dan project yang saya buat.
-    </p>
-
-    <p className="mt-4 text-blue-400">
-      Lihat Detail →
-    </p>
-  </div>
-</a>
+        <p className="mt-5 text-sm text-blue-400">
+          Next.js • Supabase
+        </p>
+      </a>
 
     </div>
-
   </div>
+
 </section>
 
-
-      {/* ================= CONTACT ================= */}
+      {/*  CONTACT  */}
       <section
         id="contact"
         className="border-t border-white/10 bg-slate-900/50 px-6 py-24"
@@ -381,7 +361,7 @@ export default function Home() {
       </section>
 
 
-      {/* ================= FOOTER ================= */}
+      {/*  FOOTER  */}
       <footer className="border-t border-white/10 px-6 py-8 text-center text-slate-500">
 
         <p>
@@ -395,7 +375,7 @@ export default function Home() {
 }
 
 
-/* ================= COMPONENT SKILL ================= */
+/* COMPONENT SKILL  */
 
 function Skill({ name }: { name: string }) {
   return (
@@ -414,7 +394,7 @@ function Skill({ name }: { name: string }) {
 }
 
 
-/* ================= COMPONENT PROJECT ================= */
+/*  COMPONENT PROJECT */
 
 function Project({
   title,
