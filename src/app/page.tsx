@@ -8,7 +8,7 @@ type Proyek = {
   id: number;
   title: string;
   description: string;
-  tech: string;
+  tech: string; 
 };
 
 export default function Home() {
