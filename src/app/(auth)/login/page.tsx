@@ -33,7 +33,7 @@ export default function LoginPage() {
     }
 
     // Kalau login berhasil
-    router.push("/admin/dashboard");
+    router.push("/doorpass");
     router.refresh();
   };
 
