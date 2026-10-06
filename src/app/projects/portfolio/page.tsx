@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio Website",
+  description:
+    "Website portfolio pribadi untuk menampilkan informasi, kemampuan, dan project yang saya buat.",
+};
+
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-[#0c1a2e] text-white px-6 py-16">
       <div className="max-w-4xl mx-auto">
-
         <a
           href="/"
           className="text-blue-400 hover:text-blue-300"
@@ -54,7 +61,6 @@ export default function PortfolioPage() {
             <li>• Contact</li>
           </ul>
         </div>
-
       </div>
     </main>
   );
