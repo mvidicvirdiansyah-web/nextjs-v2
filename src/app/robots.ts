@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://nextjs-v2-a7xsv5dn5-mvidicvirdiansyah-9115s-projects.vercel.app/sitemap.xml",
+    sitemap: "https://www.vidic-virdiansyah.my.id/sitemap.xml",
   };
 }

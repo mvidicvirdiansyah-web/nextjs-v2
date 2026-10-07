@@ -8,8 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .from("proyek")
     .select("id");
 
-  const baseUrl =
-    "https://nextjs-v2-a7xsv5dn5-mvidicvirdiansyah-9115s-projects.vercel.app";
+  const baseUrl = "https://www.vidic-virdiansyah.my.id";
 
   const projectUrls =
     proyek?.map((item) => ({
