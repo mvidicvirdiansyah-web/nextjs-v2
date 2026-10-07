@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import { createClient } from "@/lib/client";
 
 type Project = {
@@ -24,11 +26,7 @@ export default function DashboardPage() {
         .order("id", { ascending: true });
 
       if (error) {
-        console.error(
-          "Gagal mengambil data proyek:",
-          error
-        );
-
+        console.error("Gagal mengambil data proyek:", error);
         setLoading(false);
         return;
       }
@@ -42,18 +40,28 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 md:p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">
-          Dashboard
-        </h1>
+      {/* HEADER */}
+      <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">
+            Dashboard
+          </h1>
 
-        <p className="mt-2 text-gray-400">
-          Selamat datang di Admin Panel Portfolio.
-        </p>
+          <p className="mt-2 text-gray-400">
+            Selamat datang di Admin Panel Portfolio.
+          </p>
+        </div>
+
+        {/* KEMBALI KE PORTFOLIO */}
+        <Link
+          href="/"
+          className="inline-flex w-fit items-center rounded-lg border border-[#17636a] bg-[#024950] px-5 py-3 text-sm font-semibold text-[#AFDDE5] transition hover:border-cyan-400 hover:bg-[#17636a] hover:text-white"
+        >
+          ← Kembali ke Portfolio
+        </Link>
       </div>
 
-      {/* Statistics */}
+      {/* STATISTICS */}
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="rounded-2xl border border-[#17636a] bg-[#024950] p-6">
           <p className="text-sm text-gray-400">
@@ -76,7 +84,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Recent Projects */}
+      {/* RECENT PROJECTS */}
       <div className="mt-8 rounded-2xl border border-[#17636a] bg-[#024950] p-6">
         <div className="mb-5 flex items-center justify-between">
           <div>
@@ -89,12 +97,12 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <a
+          <Link
             href="/admin/proyek"
             className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-[#023136] transition hover:bg-cyan-400"
           >
             Kelola Proyek
-          </a>
+          </Link>
         </div>
 
         {loading ? (
