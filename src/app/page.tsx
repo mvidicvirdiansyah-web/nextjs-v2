@@ -1,14 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import { supabase } from "@/lib/supabase";
 
 type Proyek = {
   id: number;
   title: string;
   description: string;
-  tech: string; 
+  tech: string;
 };
 
 export default function Home() {
@@ -35,7 +37,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#023136] text-[#AFDDE5]">
-      {/* NAVBAR */}
+      {/* ================= NAVBAR ================= */}
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#024950]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <a href="#home" className="text-2xl font-bold">
@@ -43,19 +45,38 @@ export default function Home() {
           </a>
 
           <div className="hidden gap-8 md:flex">
-            <a href="#home" className="text-slate-300 hover:text-blue-400">
+            <a
+              href="#home"
+              className="text-slate-300 hover:text-blue-400"
+            >
               Home
             </a>
-            <a href="#about" className="text-slate-300 hover:text-blue-400">
+
+            <a
+              href="#about"
+              className="text-slate-300 hover:text-blue-400"
+            >
               About
             </a>
-            <a href="#skills" className="text-slate-300 hover:text-blue-400">
+
+            <a
+              href="#skills"
+              className="text-slate-300 hover:text-blue-400"
+            >
               Skills
             </a>
-            <a href="#projects" className="text-slate-300 hover:text-blue-400">
+
+            <a
+              href="#projects"
+              className="text-slate-300 hover:text-blue-400"
+            >
               Projects
             </a>
-            <a href="#contact" className="text-slate-300 hover:text-blue-400">
+
+            <a
+              href="#contact"
+              className="text-slate-300 hover:text-blue-400"
+            >
               Contact
             </a>
           </div>
@@ -115,7 +136,7 @@ export default function Home() {
         )}
       </nav>
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section
         id="home"
         className="flex min-h-screen w-full items-center overflow-hidden px-6 pt-24"
@@ -176,7 +197,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* ================= ABOUT ================= */}
       <section
         id="about"
         className="border-t border-white/10 px-6 py-24"
@@ -198,7 +219,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SKILLS */}
+      {/* ================= SKILLS ================= */}
       <section
         id="skills"
         className="bg-slate-900/50 px-6 py-24"
@@ -219,8 +240,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" className="px-6 py-24">
+      {/* ================= PROJECTS ================= */}
+      <section
+        id="projects"
+        className="px-6 py-24"
+      >
         <div className="mx-auto max-w-6xl">
           <p className="text-blue-400">MY PROJECTS</p>
 
@@ -232,6 +256,7 @@ export default function Home() {
             {proyek.map((item) => (
               <Project
                 key={item.id}
+                id={item.id}
                 title={item.title}
                 description={item.description}
                 tech={item.tech}
@@ -241,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* ================= CONTACT ================= */}
       <section
         id="contact"
         className="border-t border-white/10 bg-slate-900/50 px-6 py-24"
@@ -267,7 +292,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* ================= FOOTER ================= */}
       <footer className="border-t border-white/10 px-6 py-8 text-center text-slate-500">
         <p>
           © 2026 Muhammad Vidic Virdiansyah. All rights reserved.
@@ -277,7 +302,8 @@ export default function Home() {
   );
 }
 
-/* SKILL */
+/* ================= SKILL ================= */
+
 function Skill({ name }: { name: string }) {
   return (
     <div className="rounded-xl border border-white/10 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500/50">
@@ -292,33 +318,51 @@ function Skill({ name }: { name: string }) {
   );
 }
 
-/* PROJECT */
+/* ================= PROJECT ================= */
+
 function Project({
+  id,
   title,
   description,
   tech,
 }: {
+  id: number;
   title: string;
   description: string;
   tech: string;
 }) {
   return (
-    <div className="group rounded-2xl border border-white/10 bg-slate-900 p-7 transition hover:-translate-y-2 hover:border-blue-500/50">
-      <div className="mb-6 flex h-40 items-center justify-center rounded-xl bg-slate-800 text-5xl">
-        💻
+    <Link
+      href={`/proyek/${id}`}
+      className="group block"
+    >
+      <div className="rounded-2xl border border-white/10 bg-slate-900 p-7 transition duration-300 group-hover:-translate-y-2 group-hover:border-blue-500/50">
+
+        {/* GAMBAR / ICON */}
+        <div className="mb-6 flex h-40 items-center justify-center rounded-xl bg-slate-800 text-5xl transition duration-300 group-hover:bg-slate-700">
+          💻
+        </div>
+
+        {/* JUDUL */}
+        <h3 className="text-2xl font-bold transition group-hover:text-blue-400">
+          {title}
+        </h3>
+
+        {/* DESKRIPSI */}
+        <p className="mt-3 leading-relaxed text-slate-400">
+          {description}
+        </p>
+
+        {/* TEKNOLOGI */}
+        <p className="mt-5 text-sm text-blue-400">
+          {tech}
+        </p>
+
+        {/* PETUNJUK */}
+        <p className="mt-5 text-sm text-slate-500 transition group-hover:text-blue-400">
+          Lihat detail project →
+        </p>
       </div>
-
-      <h3 className="text-2xl font-bold">
-        {title}
-      </h3>
-
-      <p className="mt-3 leading-relaxed text-slate-400">
-        {description}
-      </p>
-
-      <p className="mt-5 text-sm text-blue-400">
-        {tech}
-      </p>
-    </div>
+    </Link>
   );
 }
