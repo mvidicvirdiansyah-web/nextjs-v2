@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
 import { createClient } from "@/lib/client";
 
 type Project = {
@@ -39,7 +38,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="p-6 md:p-8">
+    <div className="min-h-screen p-6 md:p-8">
       {/* HEADER */}
       <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div>
@@ -86,7 +85,7 @@ export default function DashboardPage() {
 
       {/* RECENT PROJECTS */}
       <div className="mt-8 rounded-2xl border border-[#17636a] bg-[#024950] p-6">
-        <div className="mb-5 flex items-center justify-between">
+        <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-xl font-bold">
               Proyek Terbaru
@@ -99,21 +98,24 @@ export default function DashboardPage() {
 
           <Link
             href="/admin/proyek"
-            className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-[#023136] transition hover:bg-cyan-400"
+            className="inline-block w-fit rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-[#023136] transition hover:bg-cyan-400"
           >
             Kelola Proyek
           </Link>
         </div>
 
+        {/* LOADING */}
         {loading ? (
           <p className="py-6 text-center text-gray-400">
             Memuat data proyek...
           </p>
         ) : projects.length === 0 ? (
+          /* EMPTY */
           <p className="py-6 text-center text-gray-400">
             Belum ada proyek.
           </p>
         ) : (
+          /* TABLE */
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-[#17636a]">

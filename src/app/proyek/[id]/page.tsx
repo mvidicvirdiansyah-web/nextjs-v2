@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createClient } from "@/lib/client";
+import { supabase } from "@/lib/supabase";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -13,8 +13,6 @@ export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
   const { id } = await params;
-
-  const supabase = createClient();
 
   const { data: proyek } = await supabase
     .from("proyek")
@@ -33,10 +31,10 @@ export async function generateMetadata(
 // ===============================
 // HALAMAN DETAIL
 // ===============================
-export default async function ProyekDetailPage({ params }: Props) {
+export default async function ProyekDetailPage({
+  params,
+}: Props) {
   const { id } = await params;
-
-  const supabase = createClient();
 
   const { data: proyek, error } = await supabase
     .from("proyek")
@@ -49,6 +47,7 @@ export default async function ProyekDetailPage({ params }: Props) {
     return (
       <main className="min-h-screen bg-[#023136] px-6 py-12 text-[#AFDDE5]">
         <div className="mx-auto max-w-4xl">
+
           <Link
             href="/#projects"
             className="mb-8 inline-block text-blue-400 transition hover:underline"
@@ -64,7 +63,12 @@ export default async function ProyekDetailPage({ params }: Props) {
             <p className="mt-4 text-[#AFDDE5]/80">
               Proyek yang kamu cari tidak tersedia.
             </p>
+
+            <p className="mt-4 text-sm text-red-400">
+              ID proyek: {id}
+            </p>
           </div>
+
         </div>
       </main>
     );
@@ -128,6 +132,7 @@ export default async function ProyekDetailPage({ params }: Props) {
 
           </div>
         </div>
+
       </div>
     </main>
   );
