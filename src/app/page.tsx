@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/client";
 
 type Proyek = {
   id: number;
@@ -12,28 +9,24 @@ type Proyek = {
   tech: string;
 };
 
-export default function Home() {
-  const [proyek, setProyek] = useState<Proyek[]>([]);
-  const [loading, setLoading] = useState(true);
+async function getProyek(): Promise<Proyek[]> {
+  const supabase = createClient();
 
-  useEffect(() => {
-    const getProyek = async () => {
-      const { data, error } = await supabase
-        .from("proyek")
-        .select("*")
-        .order("id", { ascending: true });
+  const { data, error } = await supabase
+    .from("proyek")
+    .select("id, title, description, tech")
+    .order("id", { ascending: true });
 
-      if (error) {
-        console.error("Gagal mengambil data proyek:", error);
-      } else {
-        setProyek(data || []);
-      }
+  if (error) {
+    console.error("Gagal mengambil data proyek:", error);
+    return [];
+  }
 
-      setLoading(false);
-    };
+  return data || [];
+}
 
-    getProyek();
-  }, []);
+export default async function Home() {
+  const proyek = await getProyek();
 
   return (
     <main className="min-h-screen bg-[#023136] text-[#AFDDE5]">
@@ -244,11 +237,7 @@ export default function Home() {
             Klik project untuk melihat detailnya.
           </p>
 
-          {loading ? (
-            <div className="mt-10 text-slate-400">
-              Memuat project...
-            </div>
-          ) : proyek.length === 0 ? (
+          {proyek.length === 0 ? (
             <div className="mt-10 rounded-xl border border-white/10 bg-[#024950] p-6">
               Belum ada project.
             </div>
