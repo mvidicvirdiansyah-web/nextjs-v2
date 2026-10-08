@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { createServerClient } from "@/lib/server";
+import { createClient } from "@/lib/client";
+
+export const dynamic = "force-dynamic";
 
 type Proyek = {
   id: number;
@@ -10,7 +12,7 @@ type Proyek = {
 };
 
 async function getProyek(): Promise<Proyek[]> {
-  const supabase = createServerClient();
+  const supabase = createClient();
 
   const { data, error } = await supabase
     .from("proyek")
