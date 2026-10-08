@@ -33,22 +33,21 @@ export default function ProyekAdminPage() {
 
   // READ
   const getProjects = async () => {
-    setLoading(true);
+  const { data, error } = await supabase
+    .from("proyek")
+    .select("*")
+    .order("id", { ascending: false });
 
-    const { data, error } = await supabase
-      .from("proyek")
-      .select("*")
-      .order("id", { ascending: true });
+  console.log("DATA PROYEK:", data);
+  console.log("ERROR PROYEK:", error);
 
-    if (error) {
-      console.error("Gagal mengambil data:", error);
-      setLoading(false);
-      return;
-    }
+  if (error) {
+    console.error("Gagal mengambil proyek:", error);
+    return;
+  }
 
-    setProjects(data || []);
-    setLoading(false);
-  };
+  setProjects(data || []);
+};
 
   // DELETE
   const deleteProject = async (id: number) => {
