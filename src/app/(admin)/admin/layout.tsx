@@ -8,10 +8,8 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-[#023136] text-[#AFDDE5]">
       <div className="flex min-h-screen">
-
         {/* SIDEBAR */}
         <aside className="hidden w-64 border-r border-[#17636a] bg-[#024950] md:block">
-
           {/* HEADER */}
           <div className="p-6">
             <h1 className="text-xl font-bold">
@@ -42,21 +40,19 @@ export default function AdminLayout({
 
           {/* KEMBALI KE PORTFOLIO */}
           <div className="mt-6 border-t border-[#17636a] p-4">
-            <a
-              href="https://www.vidic-virdiansyah.my.id"
+            <Link
+              href="/"
               className="block rounded-lg px-4 py-3 text-sm text-gray-300 transition hover:bg-[#023136] hover:text-cyan-400"
             >
               ← Kembali ke Portfolio
-            </a>
+            </Link>
           </div>
-
         </aside>
 
         {/* CONTENT */}
         <main className="flex-1">
           {children}
         </main>
-
       </div>
     </div>
   );

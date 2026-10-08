@@ -33,20 +33,29 @@ export default function ProyekAdminPage() {
 
   // READ
   const getProjects = async () => {
-  const { data, error } = await supabase
-    .from("proyek")
-    .select("*")
-    .order("id", { ascending: false });
+  try {
+    setLoading(true);
 
-  console.log("DATA PROYEK:", data);
-  console.log("ERROR PROYEK:", error);
+    const { data, error } = await supabase
+      .from("proyek")
+      .select("id, title, description, tech");
 
-  if (error) {
-    console.error("Gagal mengambil proyek:", error);
-    return;
+    console.log("HASIL READ PROYEK:", data);
+    console.log("ERROR READ PROYEK:", error);
+
+    if (error) {
+      console.error("Gagal mengambil data proyek:", error);
+      setProjects([]);
+      return;
+    }
+
+    setProjects(data || []);
+  } catch (err) {
+    console.error("Error tidak terduga:", err);
+    setProjects([]);
+  } finally {
+    setLoading(false);
   }
-
-  setProjects(data || []);
 };
 
   // DELETE
