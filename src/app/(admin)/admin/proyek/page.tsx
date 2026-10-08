@@ -13,7 +13,6 @@ type Project = {
 export default function ProyekAdminPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -22,6 +21,15 @@ export default function ProyekAdminPage() {
   const [editingId, setEditingId] = useState<number | null>(null);
 
   const supabase = createClient();
+
+  // CEK USER LOGIN
+  const checkUser = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    console.log("USER LOGIN:", user);
+  };
 
   // READ
   const getProjects = async () => {
@@ -165,8 +173,10 @@ export default function ProyekAdminPage() {
     alert("Proyek berhasil diupdate!");
   };
 
+  // JALANKAN SAAT HALAMAN DIBUKA
   useEffect(() => {
     getProjects();
+    checkUser();
   }, []);
 
   return (
@@ -279,8 +289,8 @@ export default function ProyekAdminPage() {
               {saving
                 ? "Menyimpan..."
                 : editingId !== null
-                  ? "Update Proyek"
-                  : "Simpan Proyek"}
+                ? "Update Proyek"
+                : "Simpan Proyek"}
             </button>
 
             <button

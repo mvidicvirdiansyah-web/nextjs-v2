@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/client";
 
 export default function GantiPasswordPage() {
+  const router = useRouter();
   const supabase = createClient();
 
   const [passwordBaru, setPasswordBaru] = useState("");
@@ -20,7 +22,6 @@ export default function GantiPasswordPage() {
     setPesan("");
     setError("");
 
-    // Cek password
     if (!passwordBaru || !konfirmasiPassword) {
       setError("Semua field harus diisi.");
       return;
@@ -53,11 +54,15 @@ export default function GantiPasswordPage() {
     setPasswordBaru("");
     setKonfirmasiPassword("");
     setLoading(false);
+
+    // Kembali ke halaman login setelah berhasil
+    setTimeout(() => {
+      router.push("/login");
+    }, 1500);
   };
 
   return (
-    <div className="min-h-screen p-6 md:p-8">
-      {/* Header */}
+    <div className="min-h-screen bg-[#023136] p-6 text-[#AFDDE5] md:p-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold">
           Ganti Password
@@ -68,7 +73,6 @@ export default function GantiPasswordPage() {
         </p>
       </div>
 
-      {/* Form */}
       <div className="max-w-xl rounded-2xl border border-[#17636a] bg-[#024950] p-6">
         <form onSubmit={handleGantiPassword}>
           {/* Password Baru */}
@@ -80,10 +84,9 @@ export default function GantiPasswordPage() {
             <input
               type="password"
               value={passwordBaru}
-              onChange={(e) =>
-                setPasswordBaru(e.target.value)
-              }
+              onChange={(e) => setPasswordBaru(e.target.value)}
               placeholder="Masukkan password baru"
+              required
               className="w-full rounded-lg border border-[#17636a] bg-[#023136] px-4 py-3 outline-none focus:border-cyan-400"
             />
           </div>
@@ -101,6 +104,7 @@ export default function GantiPasswordPage() {
                 setKonfirmasiPassword(e.target.value)
               }
               placeholder="Masukkan kembali password baru"
+              required
               className="w-full rounded-lg border border-[#17636a] bg-[#023136] px-4 py-3 outline-none focus:border-cyan-400"
             />
           </div>
@@ -116,6 +120,8 @@ export default function GantiPasswordPage() {
           {pesan && (
             <div className="mb-5 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-400">
               {pesan}
+              <br />
+              Mengarahkan ke halaman login...
             </div>
           )}
 
